@@ -25,6 +25,8 @@ namespace StardewValleyExtraSlots
         private void find_Click(object sender, EventArgs e)
         {
             AddSlots addSlot = new AddSlots();
+            string cid = addSlot.GenerateCabinNameID();
+            string mpid = addSlot.GenerateUniqueMultiplayerID();
             addSlot.ReadTitleName();
         }
     }
