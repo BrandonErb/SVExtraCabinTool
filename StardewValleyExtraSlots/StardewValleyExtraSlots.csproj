@@ -109,15 +109,12 @@
     </BootstrapperPackage>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Farmhand1.txt">
-      <SubType>Designer</SubType>
-    </Content>
-    <Content Include="Farmhand2.txt">
-      <SubType>Designer</SubType>
-    </Content>
-    <Content Include="Farmhand3.txt">
-      <SubType>Designer</SubType>
-    </Content>
+    <Content Include="Farmhand1.txt" />
+    <Content Include="Farmhand2.txt" />
+    <Content Include="Farmhand3.txt" />
+    <Content Include="Farmhand4Template.txt" />
+    <Content Include="Farmhand5Template.txt" />
+    <Content Include="Farmhand6Template.txt" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
