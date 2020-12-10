@@ -112,9 +112,13 @@
     <Content Include="Farmhand1.txt" />
     <Content Include="Farmhand2.txt" />
     <Content Include="Farmhand3.txt" />
-    <Content Include="Farmhand4Template.txt" />
-    <Content Include="Farmhand5Template.txt" />
-    <Content Include="Farmhand6Template.txt" />
+    <Content Include="Farmhand4Template.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Farmhand5Template.xml" />
+    <Content Include="Farmhand6Template.xml">
+      <SubType>Designer</SubType>
+    </Content>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

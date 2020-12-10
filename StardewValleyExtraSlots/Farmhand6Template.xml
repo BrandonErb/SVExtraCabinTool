@@ -1,4 +1,5 @@
-﻿<Building>
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Building xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
   <indoors xsi:type="Cabin">
     <characters />
     <objects>
@@ -1942,7 +1943,7 @@
       <chestConsumedLevels />
       <saveTime>0</saveTime>
       <isCustomized>false</isCustomized>
-      <homeLocation>Cabin9f24dd4a-aefe-498e-a9ce-a2e9ac666e13</homeLocation>
+      <homeLocation>Cabin0e0340f1-fe17-46bc-bfd0-7a806763e665</homeLocation>
       <daysMarried>0</daysMarried>
       <movementMultiplier>0.01</movementMultiplier>
       <theaterBuildDate>-1</theaterBuildDate>
@@ -1959,15 +1960,15 @@
       <money>500</money>
     </farmhand>
   </indoors>
-  <tileX>12</tileX>
-  <tileY>8</tileY>
+  <tileX>54</tileX>
+  <tileY>43</tileY>
   <tilesWide>5</tilesWide>
   <tilesHigh>3</tilesHigh>
   <maxOccupants>20</maxOccupants>
   <currentOccupants>0</currentOccupants>
   <daysOfConstructionLeft>0</daysOfConstructionLeft>
   <daysUntilUpgrade>0</daysUntilUpgrade>
-  <buildingType>Plank Cabin</buildingType>
+  <buildingType>Log Cabin</buildingType>
   <humanDoor>
     <X>2</X>
     <Y>1</Y>

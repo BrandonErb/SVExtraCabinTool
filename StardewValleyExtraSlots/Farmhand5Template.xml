@@ -1,4 +1,5 @@
-﻿<Building>
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Building xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
   <indoors xsi:type="Cabin">
     <characters />
     <objects>
@@ -105,7 +106,7 @@
                 <setIndoors>false</setIndoors>
                 <readyForHarvest>false</readyForHarvest>
                 <showNextIndex>false</showNextIndex>
-                <flipped>false</flipped>
+                <flipped>true</flipped>
                 <hasBeenPickedUpByFarmer>false</hasBeenPickedUpByFarmer>
                 <isRecipe>false</isRecipe>
                 <isLamp>false</isLamp>
@@ -1942,7 +1943,7 @@
       <chestConsumedLevels />
       <saveTime>0</saveTime>
       <isCustomized>false</isCustomized>
-      <homeLocation>Cabin0e0340f1-fe17-46bc-bfd0-7a806763e665</homeLocation>
+      <homeLocation>Cabin53c29470-4f16-45f2-8495-4f783e7ffe98</homeLocation>
       <daysMarried>0</daysMarried>
       <movementMultiplier>0.01</movementMultiplier>
       <theaterBuildDate>-1</theaterBuildDate>
@@ -1959,7 +1960,7 @@
       <money>500</money>
     </farmhand>
   </indoors>
-  <tileX>54</tileX>
+  <tileX>23</tileX>
   <tileY>43</tileY>
   <tilesWide>5</tilesWide>
   <tilesHigh>3</tilesHigh>
@@ -1967,7 +1968,7 @@
   <currentOccupants>0</currentOccupants>
   <daysOfConstructionLeft>0</daysOfConstructionLeft>
   <daysUntilUpgrade>0</daysUntilUpgrade>
-  <buildingType>Log Cabin</buildingType>
+  <buildingType>Stone Cabin</buildingType>
   <humanDoor>
     <X>2</X>
     <Y>1</Y>

@@ -11,6 +11,6 @@
     <VerifyUploadedFiles>false</VerifyUploadedFiles>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|AnyCPU'">
-    <StartWorkingDirectory>C:\</StartWorkingDirectory>
+    <StartWorkingDirectory>C:\Users\Brandon\Documents\Projects\SVExtraSlotsTool\StardewValleyExtraSlots\StardewValleyExtraSlots\</StartWorkingDirectory>
   </PropertyGroup>
 </Project>

@@ -16,7 +16,8 @@ namespace StardewValleyExtraSlots
     class AddSlots
     {
         public List<GameSave> gameSaves;
-        
+        readonly XNamespace ns = "http://www.w3.org/2001/XMLSchema-instance";
+
         public AddSlots()
         {
             gameSaves = new List<GameSave>();
@@ -28,8 +29,7 @@ namespace StardewValleyExtraSlots
         public void ReadTitleName()
         {
             string appDataPath = Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData);
-            string saveLocation = appDataPath + @"\StardewValley\Saves";
-            XNamespace ns = "http://www.w3.org/2001/XMLSchema-instance";
+            string saveLocation = appDataPath + @"\StardewValley\Saves";         
             List<string> entries = System.IO.Directory.GetDirectories(saveLocation).ToList();
             List<DirectoryInfo> di =  new List<DirectoryInfo>();
 
@@ -110,42 +110,85 @@ namespace StardewValleyExtraSlots
         /// <summary>Adds the desired cabin amount</summary>
         /// <para></para>
         /// <returns></returns>
-        public void AddSlotsToFile(GameSave saveFile, int numSlots)
+        public string AddSlotsToFile(GameSave saveFile, int numSlots)
         {
+            string[] farmhandTemplates = { "Farmhand4Template.xml", "Farmhand5Template.xml", "Farmhand6Template.xml" };
+            int templateNum = 0;
+            //Check to see if maximum cabins have been added
+            if (numSlots >= 6)
+            {
+                return "Max Cabins Reached";
+            }
+
+            switch (saveFile.cabinNum)
+            {
+                case 0:
+                    return "Too Few Cabins on Original Save";
+                    //break;
+                case 1:
+                    return "Too Few Cabins on Original Save";
+                    //break;
+                case 2:
+                    return "Too Few Cabins on Original Save";
+                    //break;
+                case 3:
+                    templateNum = 0;
+                    break;
+                case 4:
+                    templateNum = 1;
+                    break;
+                case 5:
+                    templateNum = 2;
+                    break;
+                case 6:
+                    return "Max Cabins Reached";
+                    //break;
+            }
+
             //backup anyfile that is going to be edited.
-            int timestamp = (int)DateTime.UtcNow.Ticks * -1;
+            int timestamp = Math.Abs((int)DateTime.UtcNow.Ticks);
             string copyFile = saveFile.filePath + ".backup_" + timestamp.ToString();
             System.IO.File.Copy(saveFile.filePath, copyFile, true);
 
-            //add slots text to streams
-            string fh4, fh5, fh6;
 
-            using (StreamReader sr = File.OpenText(@"Farmhand4.txt"))
+            /// Building/indoors/uniqueName
+            /// Building/indoors/farmhand/UniqueMultiplayerID
+            /// SaveGame / locations / GameLocation / buildings
+            try
             {
-                while ((fh4 = sr.ReadLine()) != null);
-            }
-            using (StreamReader sr = File.OpenText(@"Farmhand5.txt"))
+                //add unique identifyers to xml streams
+                //string templatePath = Path.GetDirectoryName(Process.GetCurrentProcess().MainModule.FileName) + "\\SlotFiles\\FarmHand4Template.xml"; //for release
+                string templatePath = @".\SlotFiles\"; //for debug
+                XDocument xmlDoc = XDocument.Load(templatePath + farmhandTemplates[templateNum]);
+                var uniqueName = xmlDoc.Element("Building").Element("indoors").Element("uniqueName");
+                uniqueName.Value = GenerateCabinNameID();
+
+                var uniqueMpID = xmlDoc.Element("Building").Element("indoors").Element("farmhand").Element("UniqueMultiplayerID");
+                uniqueMpID.Value = GenerateUniqueMultiplayerID();
+
+                //insert new cabin
+                XDocument xmlSaveFile = XDocument.Load(saveFile.filePath);
+
+                XElement farmE =
+                     (from el in xmlSaveFile.Descendants("locations").Elements("GameLocation")
+                     where (string)el.Attribute(ns + "type") == "Farm"
+                     select el).FirstOrDefault();
+
+                //var location = farmE.Element("buildings");
+                XElement xmlBuilding = XElement.Parse(xmlDoc.ToString());
+
+                farmE.Element("buildings").Add(xmlBuilding);
+
+                xmlSaveFile.Save(saveFile.filePath);
+            } 
+            catch (Exception e)
             {
-                while ((fh5 = sr.ReadLine()) != null) ;
-            }
-            using (StreamReader sr = File.OpenText(@"Farmhand6.txt"))
-            {
-                while ((fh6 = sr.ReadLine()) != null) ;
+                Debug.WriteLine(e);
+                return "Failed to Add Slot(s)";
             }
 
+            return "Succesfully Added Slot(s)";
 
-            //add to xml
-            //XmlDocument doc = new XmlDocument();
-            //doc.LoadXml();
-
-            //XmlNode root = doc.DocumentElement;
-
-            ////Create a new node.
-            //XmlElement elem = doc.CreateElement("price");
-            //elem.InnerText = "19.95";
-
-            ////Add the node to the document.
-            //root.AppendChild(elem);
         }
 
 

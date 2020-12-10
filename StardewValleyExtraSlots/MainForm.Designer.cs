@@ -36,6 +36,9 @@
             this.FarmerName = new System.Windows.Forms.Label();
             this.CabinNumber = new System.Windows.Forms.Label();
             this.saveComboBox = new System.Windows.Forms.ComboBox();
+            this.addButton = new System.Windows.Forms.Button();
+            this.addComboBox = new System.Windows.Forms.ComboBox();
+            this.newSlotsLabel = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // Find
@@ -110,11 +113,43 @@
             this.saveComboBox.TabIndex = 8;
             this.saveComboBox.SelectedIndexChanged += new System.EventHandler(this.saveComboBox_SelectedIndexChanged);
             // 
+            // addButton
+            // 
+            this.addButton.Location = new System.Drawing.Point(161, 290);
+            this.addButton.Name = "addButton";
+            this.addButton.Size = new System.Drawing.Size(75, 23);
+            this.addButton.TabIndex = 9;
+            this.addButton.Text = "Add";
+            this.addButton.UseVisualStyleBackColor = true;
+            this.addButton.Click += new System.EventHandler(this.addButton_Click);
+            // 
+            // addComboBox
+            // 
+            this.addComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.addComboBox.Enabled = false;
+            this.addComboBox.FormattingEnabled = true;
+            this.addComboBox.Location = new System.Drawing.Point(216, 249);
+            this.addComboBox.Name = "addComboBox";
+            this.addComboBox.Size = new System.Drawing.Size(44, 21);
+            this.addComboBox.TabIndex = 10;
+            // 
+            // newSlotsLabel
+            // 
+            this.newSlotsLabel.AutoSize = true;
+            this.newSlotsLabel.Location = new System.Drawing.Point(140, 252);
+            this.newSlotsLabel.Name = "newSlotsLabel";
+            this.newSlotsLabel.Size = new System.Drawing.Size(66, 13);
+            this.newSlotsLabel.TabIndex = 12;
+            this.newSlotsLabel.Text = "Extra Cabins";
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(408, 392);
+            this.ClientSize = new System.Drawing.Size(408, 354);
+            this.Controls.Add(this.newSlotsLabel);
+            this.Controls.Add(this.addComboBox);
+            this.Controls.Add(this.addButton);
             this.Controls.Add(this.saveComboBox);
             this.Controls.Add(this.CabinNumber);
             this.Controls.Add(this.FarmerName);
@@ -124,7 +159,7 @@
             this.Controls.Add(this.slotBox);
             this.Controls.Add(this.Find);
             this.Name = "MainForm";
-            this.Text = "Stardew Valley Add Multiplayer Cabins";
+            this.Text = "Stardew Valley Add Cabin Tool";
             this.Load += new System.EventHandler(this.MainForm_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -141,6 +176,9 @@
         private System.Windows.Forms.Label FarmerName;
         private System.Windows.Forms.Label CabinNumber;
         private System.Windows.Forms.ComboBox saveComboBox;
+        private System.Windows.Forms.Button addButton;
+        private System.Windows.Forms.ComboBox addComboBox;
+        private System.Windows.Forms.Label newSlotsLabel;
     }
 }
 
