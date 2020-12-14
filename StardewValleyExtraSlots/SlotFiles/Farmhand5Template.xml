@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<Building>
+<Building xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
   <indoors xsi:type="Cabin">
     <characters />
     <objects>
@@ -1960,7 +1960,7 @@
       <money>500</money>
     </farmhand>
   </indoors>
-  <tileX>12</tileX>
+  <tileX>22</tileX>
   <tileY>43</tileY>
   <tilesWide>5</tilesWide>
   <tilesHigh>3</tilesHigh>

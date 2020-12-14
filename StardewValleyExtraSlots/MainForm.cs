@@ -63,10 +63,12 @@ namespace StardewValleyExtraSlots
             string result = addSlot.AddSlotsToFile(addSlot.gameSaves[saveComboBox.SelectedIndex], addComboBox.SelectedIndex + 1);
             saveComboBox.Items.Clear();
             saveComboBox.ResetText();
+            farmBox.Clear();
+            farmerBox.Clear();
+            slotBox.Clear();
             addSlot = new AddSlots();
 
             MessageBox.Show(result, "Confirmation", MessageBoxButtons.OK, MessageBoxIcon.Information);
-
         }
     }
 }

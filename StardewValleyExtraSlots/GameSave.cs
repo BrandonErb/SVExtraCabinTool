@@ -2,7 +2,7 @@
 
 namespace StardewValleyExtraSlots
 {
-    struct GameSave
+    public struct GameSave
     {
         public string playerName;
         public string farmName;

@@ -106,7 +106,7 @@
                 <setIndoors>false</setIndoors>
                 <readyForHarvest>false</readyForHarvest>
                 <showNextIndex>false</showNextIndex>
-                <flipped>true</flipped>
+                <flipped>false</flipped>
                 <hasBeenPickedUpByFarmer>false</hasBeenPickedUpByFarmer>
                 <isRecipe>false</isRecipe>
                 <isLamp>false</isLamp>
@@ -1943,7 +1943,7 @@
       <chestConsumedLevels />
       <saveTime>0</saveTime>
       <isCustomized>false</isCustomized>
-      <homeLocation>Cabin53c29470-4f16-45f2-8495-4f783e7ffe98</homeLocation>
+      <homeLocation>Cabin9f24dd4a-aefe-498e-a9ce-a2e9ac666e13</homeLocation>
       <daysMarried>0</daysMarried>
       <movementMultiplier>0.01</movementMultiplier>
       <theaterBuildDate>-1</theaterBuildDate>
@@ -1960,15 +1960,15 @@
       <money>500</money>
     </farmhand>
   </indoors>
-  <tileX>23</tileX>
-  <tileY>43</tileY>
+  <tileX>22</tileX>
+  <tileY>8</tileY>
   <tilesWide>5</tilesWide>
   <tilesHigh>3</tilesHigh>
   <maxOccupants>20</maxOccupants>
   <currentOccupants>0</currentOccupants>
   <daysOfConstructionLeft>0</daysOfConstructionLeft>
   <daysUntilUpgrade>0</daysUntilUpgrade>
-  <buildingType>Stone Cabin</buildingType>
+  <buildingType>Plank Cabin</buildingType>
   <humanDoor>
     <X>2</X>
     <Y>1</Y>

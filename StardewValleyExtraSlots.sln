@@ -5,6 +5,8 @@ VisualStudioVersion = 15.0.28307.1300
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StardewValleyExtraSlots", "StardewValleyExtraSlots\StardewValleyExtraSlots.csproj", "{C389D1F5-C921-45F5-B5F5-7C887409FCA3}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UnitTests", "UnitTests\UnitTests.csproj", "{C30EF548-C2E6-45DC-AF6D-1D715BFEA02A}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +17,10 @@ Global
 		{C389D1F5-C921-45F5-B5F5-7C887409FCA3}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C389D1F5-C921-45F5-B5F5-7C887409FCA3}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{C389D1F5-C921-45F5-B5F5-7C887409FCA3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C30EF548-C2E6-45DC-AF6D-1D715BFEA02A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C30EF548-C2E6-45DC-AF6D-1D715BFEA02A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C30EF548-C2E6-45DC-AF6D-1D715BFEA02A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C30EF548-C2E6-45DC-AF6D-1D715BFEA02A}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

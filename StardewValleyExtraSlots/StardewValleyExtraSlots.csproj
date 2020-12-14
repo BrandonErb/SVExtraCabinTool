@@ -109,14 +109,16 @@
     </BootstrapperPackage>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Farmhand1.txt" />
-    <Content Include="Farmhand2.txt" />
-    <Content Include="Farmhand3.txt" />
-    <Content Include="Farmhand4Template.xml">
+    <Content Include="SlotFiles\Farmhand1.txt" />
+    <Content Include="SlotFiles\Farmhand2.txt" />
+    <Content Include="SlotFiles\Farmhand3.txt" />
+    <Content Include="SlotFiles\Farmhand4Template.xml">
       <SubType>Designer</SubType>
     </Content>
-    <Content Include="Farmhand5Template.xml" />
-    <Content Include="Farmhand6Template.xml">
+    <Content Include="SlotFiles\Farmhand5Template.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="SlotFiles\Farmhand6Template.xml">
       <SubType>Designer</SubType>
     </Content>
   </ItemGroup>

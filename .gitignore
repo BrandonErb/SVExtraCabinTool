@@ -3,3 +3,6 @@
 ################################################################################
 
 /.vs/StardewValleyExtraSlots/v15/Server/sqlite3
+/packages
+/UnitTests/bin
+/UnitTests/obj

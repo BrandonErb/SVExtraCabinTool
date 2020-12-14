@@ -13,7 +13,7 @@ using System.Xml;
 
 namespace StardewValleyExtraSlots
 {
-    class AddSlots
+    public class AddSlots
     {
         public List<GameSave> gameSaves;
         readonly XNamespace ns = "http://www.w3.org/2001/XMLSchema-instance";
@@ -47,6 +47,7 @@ namespace StardewValleyExtraSlots
                 files = Directory.GetFiles(saveLocation + "\\" + d.Name).ToList();
                 string fileLocation = saveLocation + "\\" + d.Name + "\\SaveGameInfo";
                 var saveGameInfo = files.FirstOrDefault(x => x == fileLocation);
+                //Read basic save info
                 XElement xmlGameInfo = XElement.Load(saveGameInfo);
                 string farmName = xmlGameInfo.Element("farmName").Value;
                 string name = xmlGameInfo.Element("name").Value;
@@ -107,7 +108,7 @@ namespace StardewValleyExtraSlots
             }
         }
 
-        /// <summary>Adds the desired cabin amount</summary>
+        /// <summary>Adds the desired number of cabins</summary>
         /// <para></para>
         /// <returns></returns>
         public string AddSlotsToFile(GameSave saveFile, int numSlots)
@@ -115,22 +116,22 @@ namespace StardewValleyExtraSlots
             string[] farmhandTemplates = { "Farmhand4Template.xml", "Farmhand5Template.xml", "Farmhand6Template.xml" };
             int templateNum = 0;
             //Check to see if maximum cabins have been added
-            if (numSlots >= 6)
+            if (numSlots + saveFile.cabinNum > 6)
             {
-                return "Max Cabins Reached";
+                return "Cannot Add That Many Cabins, Total Would Go Over Maximum";
             }
 
-            switch (saveFile.cabinNum)
+            switch (saveFile.cabinNum) //Needs to modified for a more dynamic funtion
             {
                 case 0:
                     return "Too Few Cabins on Original Save";
-                    //break;
+                //break;
                 case 1:
                     return "Too Few Cabins on Original Save";
-                    //break;
+                //break;
                 case 2:
                     return "Too Few Cabins on Original Save";
-                    //break;
+                //break;
                 case 3:
                     templateNum = 0;
                     break;
@@ -146,7 +147,7 @@ namespace StardewValleyExtraSlots
             }
 
             //backup anyfile that is going to be edited.
-            int timestamp = Math.Abs((int)DateTime.UtcNow.Ticks);
+            Int64 timestamp = CreateTimestamp();
             string copyFile = saveFile.filePath + ".backup_" + timestamp.ToString();
             System.IO.File.Copy(saveFile.filePath, copyFile, true);
 
@@ -157,8 +158,8 @@ namespace StardewValleyExtraSlots
             try
             {
                 //add unique identifyers to xml streams
-                //string templatePath = Path.GetDirectoryName(Process.GetCurrentProcess().MainModule.FileName) + "\\SlotFiles\\FarmHand4Template.xml"; //for release
-                string templatePath = @".\SlotFiles\"; //for debug
+                string templatePath = Path.GetDirectoryName(Process.GetCurrentProcess().MainModule.FileName) + "\\SlotFiles\\";
+                //string templatePath = @".\SlotFiles\"; //for debug
                 XDocument xmlDoc = XDocument.Load(templatePath + farmhandTemplates[templateNum]);
                 var uniqueName = xmlDoc.Element("Building").Element("indoors").Element("uniqueName");
                 uniqueName.Value = GenerateCabinNameID();
@@ -171,8 +172,8 @@ namespace StardewValleyExtraSlots
 
                 XElement farmE =
                      (from el in xmlSaveFile.Descendants("locations").Elements("GameLocation")
-                     where (string)el.Attribute(ns + "type") == "Farm"
-                     select el).FirstOrDefault();
+                      where (string)el.Attribute(ns + "type") == "Farm"
+                      select el).FirstOrDefault();
 
                 //var location = farmE.Element("buildings");
                 XElement xmlBuilding = XElement.Parse(xmlDoc.ToString());
@@ -180,7 +181,7 @@ namespace StardewValleyExtraSlots
                 farmE.Element("buildings").Add(xmlBuilding);
 
                 xmlSaveFile.Save(saveFile.filePath);
-            } 
+            }
             catch (Exception e)
             {
                 Debug.WriteLine(e);
@@ -189,6 +190,14 @@ namespace StardewValleyExtraSlots
 
             return "Succesfully Added Slot(s)";
 
+        }
+
+        /// <summary>Gets a number that can be used to sequetially determain which file was modified first</summary>
+        /// <para></para>
+        /// <returns>The number of ms since 01/01/1970</returns>
+        public Int64 CreateTimestamp()
+        {
+            return Math.Abs((Int64)DateTime.Now.Ticks);
         }
 
 

@@ -1,0 +1,10 @@
+C:\Users\Brandon\Documents\Projects\SVExtraSlotsTool\StardewValleyExtraSlots\StardewValleyExtraSlots\bin\Release\StardewValleyExtraSlots.exe.config
+C:\Users\Brandon\Documents\Projects\SVExtraSlotsTool\StardewValleyExtraSlots\StardewValleyExtraSlots\bin\Release\StardewValleyExtraSlots.exe
+C:\Users\Brandon\Documents\Projects\SVExtraSlotsTool\StardewValleyExtraSlots\StardewValleyExtraSlots\bin\Release\StardewValleyExtraSlots.pdb
+C:\Users\Brandon\Documents\Projects\SVExtraSlotsTool\StardewValleyExtraSlots\StardewValleyExtraSlots\obj\Release\StardewValleyExtraSlots.MainForm.resources
+C:\Users\Brandon\Documents\Projects\SVExtraSlotsTool\StardewValleyExtraSlots\StardewValleyExtraSlots\obj\Release\StardewValleyExtraSlots.Properties.Resources.resources
+C:\Users\Brandon\Documents\Projects\SVExtraSlotsTool\StardewValleyExtraSlots\StardewValleyExtraSlots\obj\Release\StardewValleyExtraSlots.csproj.GenerateResource.cache
+C:\Users\Brandon\Documents\Projects\SVExtraSlotsTool\StardewValleyExtraSlots\StardewValleyExtraSlots\obj\Release\StardewValleyExtraSlots.csproj.CoreCompileInputs.cache
+C:\Users\Brandon\Documents\Projects\SVExtraSlotsTool\StardewValleyExtraSlots\StardewValleyExtraSlots\obj\Release\StardewValleyExtraSlots.exe
+C:\Users\Brandon\Documents\Projects\SVExtraSlotsTool\StardewValleyExtraSlots\StardewValleyExtraSlots\obj\Release\StardewValleyExtraSlots.pdb
+C:\Users\Brandon\Documents\Projects\SVExtraSlotsTool\StardewValleyExtraSlots\StardewValleyExtraSlots\obj\Release\StardewValleyExtraSlots.csprojAssemblyReference.cache
