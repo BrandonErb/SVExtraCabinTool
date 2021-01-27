@@ -45,6 +45,7 @@ namespace StardewValleyExtraSlots
                 saveComboBox.Items.Add(g.saveFile);
             }
 
+            addComboBox.SelectedIndex = 0;
             saveComboBox.SelectedIndex = 0;
             farmBox.Text = addSlot.gameSaves[0].farmName;
             farmerBox.Text = addSlot.gameSaves[0].playerName;

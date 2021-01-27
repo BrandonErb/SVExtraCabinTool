@@ -126,7 +126,6 @@
             // addComboBox
             // 
             this.addComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.addComboBox.Enabled = false;
             this.addComboBox.FormattingEnabled = true;
             this.addComboBox.Location = new System.Drawing.Point(216, 249);
             this.addComboBox.Name = "addComboBox";

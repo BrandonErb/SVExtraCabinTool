@@ -52,6 +52,7 @@ namespace StardewValleyExtraSlots
                 string farmName = xmlGameInfo.Element("farmName").Value;
                 string name = xmlGameInfo.Element("name").Value;
 
+                //add info to struct
                 gameSave.farmName = farmName;
                 gameSave.playerName = name;
                 gameSave.saveFile = d.Name;
@@ -63,22 +64,6 @@ namespace StardewValleyExtraSlots
                 string saveFile = files.FirstOrDefault(x => x == saveFilePath);
                 XElement xmlGameSave = XElement.Load(saveFile);
                 int cabinNum = 0;
-
-                //try
-                //{
-                //    int numCabin = 0;
-                //    numCabin = xmlGameSave.Descendants("Building").Count();
-                //    gameSave.cabinNum = numCabin;
-                //}
-                //catch(Exception e)
-                //{
-
-                //}
-
-                //Check Building type for existing cabin count
-                /// XML Paths
-                /// SaveGame / locations / GameLocation /
-                /// SaveGame / locations / GameLocation / buildings / Building
 
                 try
                 {
@@ -113,7 +98,7 @@ namespace StardewValleyExtraSlots
         /// <returns></returns>
         public string AddSlotsToFile(GameSave saveFile, int numSlots)
         {
-            string[] farmhandTemplates = { "Farmhand4Template.xml", "Farmhand5Template.xml", "Farmhand6Template.xml" };
+            string[] farmhandTemplates = { "Farmhand1Template.xml", "Farmhand2Template.xml", "Farmhand3Template.xml", "Farmhand4Template.xml", "Farmhand5Template.xml", "Farmhand6Template.xml" };
             int templateNum = 0;
             //Check to see if maximum cabins have been added
             if (numSlots + saveFile.cabinNum > 6)
@@ -121,37 +106,36 @@ namespace StardewValleyExtraSlots
                 return "Cannot Add That Many Cabins, Total Would Go Over Maximum";
             }
 
-            switch (saveFile.cabinNum) //Needs to modified for a more dynamic funtion
+            switch (saveFile.cabinNum)
             {
                 case 0:
-                    return "Too Few Cabins on Original Save";
-                //break;
-                case 1:
-                    return "Too Few Cabins on Original Save";
-                //break;
-                case 2:
-                    return "Too Few Cabins on Original Save";
-                //break;
-                case 3:
                     templateNum = 0;
                     break;
-                case 4:
+                case 1:
                     templateNum = 1;
                     break;
-                case 5:
+                case 2:
                     templateNum = 2;
                     break;
-                case 6:
-                    return "Max Cabins Reached";
-                    //break;
+                case 3:
+                    templateNum = 3;
+                    break;
+                case 4:
+                    templateNum = 4;
+                    break;
+                case 5:
+                    templateNum = 5;
+                    break;
+                default:
+                    return "Max Cabin Reached";
             }
 
             //backup anyfile that is going to be edited.
             Int64 timestamp = CreateTimestamp();
-            string copyFile = saveFile.filePath + ".backup_" + timestamp.ToString();
+            string copyFile = saveFile.filePath + "_" + timestamp.ToString() + ".backup";
             System.IO.File.Copy(saveFile.filePath, copyFile, true);
 
-
+            /// Paths:
             /// Building/indoors/uniqueName
             /// Building/indoors/farmhand/UniqueMultiplayerID
             /// SaveGame / locations / GameLocation / buildings
@@ -159,7 +143,6 @@ namespace StardewValleyExtraSlots
             {
                 //add unique identifyers to xml streams
                 string templatePath = Path.GetDirectoryName(Process.GetCurrentProcess().MainModule.FileName) + "\\SlotFiles\\";
-                //string templatePath = @".\SlotFiles\"; //for debug
                 XDocument xmlDoc = XDocument.Load(templatePath + farmhandTemplates[templateNum]);
                 var uniqueName = xmlDoc.Element("Building").Element("indoors").Element("uniqueName");
                 uniqueName.Value = GenerateCabinNameID();
@@ -175,7 +158,6 @@ namespace StardewValleyExtraSlots
                       where (string)el.Attribute(ns + "type") == "Farm"
                       select el).FirstOrDefault();
 
-                //var location = farmE.Element("buildings");
                 XElement xmlBuilding = XElement.Parse(xmlDoc.ToString());
 
                 farmE.Element("buildings").Add(xmlBuilding);
@@ -207,7 +189,7 @@ namespace StardewValleyExtraSlots
         public string GenerateUniqueMultiplayerID()
         {
             long min = 1000000000000000000;
-            long max = 9223372036854775807;
+            long max = 9223372036854775807; //top limit of unsigned 64 bit int
             Random rand = new Random((int)DateTime.UtcNow.Ticks);
             
             byte[] buf = new byte[8];
